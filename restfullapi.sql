@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17 окт 2017 в 02:00
+-- Generation Time: 17 окт 2017 в 15:49
 -- Версия на сървъра: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -27,8 +27,6 @@ SET time_zone = "+00:00";
 --
 -- Структура на таблица `login_tokens`
 --
--- Създаване: 13 окт 2017 в 12:34
---
 
 CREATE TABLE `login_tokens` (
   `token` varchar(200) NOT NULL,
@@ -51,9 +49,30 @@ INSERT INTO `login_tokens` (`token`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура на таблица `visitrors`
+-- Структура на таблица `users`
 --
--- Създаване: 12 окт 2017 в 20:54
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- RELATIONSHIPS FOR TABLE `users`:
+--
+
+--
+-- Схема на данните от таблица `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'verify', 'passtest');
+
+-- --------------------------------------------------------
+
+--
+-- Структура на таблица `visitrors`
 --
 
 CREATE TABLE `visitrors` (
@@ -79,6 +98,12 @@ INSERT INTO `visitrors` (`id`, `numbers`, `name`) VALUES
 --
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `visitrors`
 --
 ALTER TABLE `visitrors`
@@ -88,6 +113,11 @@ ALTER TABLE `visitrors`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `visitrors`
 --
